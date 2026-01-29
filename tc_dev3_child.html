@@ -1,5 +1,5 @@
 <html>
-<style>
+  <style>
     .site-cos .slds-visual-picker-select .slds-visual-picker__figure svg {
         width: 43px;
         height: 40px;
@@ -15,26 +15,29 @@
         margin-right: 1rem;
         margin-bottom: 20px;
     }
-</style>
+  </style>
 <script src="https://transformcambodia.my.site.com/sponsor/lightning/lightning.out.js"></script>
-<div id="spinner">
-    Loading...
-</div>
+  <div id="spinner">
+    Loading 01...
+  </div>
 <div data-lightning-out="true" class="site-cos"></div>
 <script>
     const appName='c:LC01_ChildProfileCards';
     const componentname='c:lwc01_ChildProfileCards';
     const lightningEndPoint='https://transformcambodia--dev3.sandbox.my.site.com/sponsor';
     const targetElement=document.querySelector("[data-lightning-out]");
- 
+
     //Get ALL URL parameters dynamically
     const urlParams = Object.fromEntries(
         new URLSearchParams(window.location.search)
     );
+	
     // Add defaults / enforced params
     const componentParams = {
         launchMode: 'Child',   // always set
+		 paramsJson: JSON.stringify(urlParams) 
     };
+	
 	$Lightning.use(
         appName,
         function () {
