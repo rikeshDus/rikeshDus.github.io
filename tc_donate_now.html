@@ -38,7 +38,7 @@
   <div id="spinner" class="spinner"></div>
 <div data-lightning-out="true" class="site-cos"></div>
   <script>
-    console.log("v3.0");
+    console.log("v4.0");
     const appName='c:LC02_DonateNowApp';
     const componentname='c:lwc02DonateNow';
     const lightningEndPoint='https://transformcambodia--dev3.sandbox.my.site.com/sponsor';
@@ -58,7 +58,7 @@
           console.log('Run Create Component function.');
           $Lightning.createComponent(
               componentname,
-              componentParams,
+			  {},//componentParams,
               targetElement ,
                 function(cmp) {
                   console.log("LWC component is Loaded.");
