@@ -38,24 +38,33 @@
   <div id="spinner" class="spinner"></div>
 <div data-lightning-out="true" class="site-cos"></div>
   <script>
-    console.log("v2.0");
+    console.log("v1.0");
     const appName='c:LC02_DonateNowApp';
     const componentname='c:lwc02DonateNow';
     const lightningEndPoint='https://transformcambodia--dev3.sandbox.my.site.com/sponsor/';
     const targetElement=document.querySelector("[data-lightning-out]");
+    
+    const urlParams = Object.fromEntries(
+        new URLSearchParams(window.location.search)
+    );
+    
+    const componentParams = {
+		  paramsJson: JSON.stringify(urlParams) 
+    };
+    
      $Lightning.use(
         appName, 
         function() {
-          console.log('inside first function');
-        $Lightning.createComponent(
-            componentname, 
-            {},
-            targetElement ,
-              function(cmp) {
-                console.log("LWC component was created1");
-                document.getElementById("spinner").style.display = "none";
-              }
-          );
+          console.log('Run Create Component function.');
+          $Lightning.createComponent(
+              componentname,
+              componentParams,
+              targetElement ,
+                function(cmp) {
+                  console.log("LWC component is Loaded.");
+                  document.getElementById("spinner").style.display = "none";
+                }
+            );
         },
         lightningEndPoint
       );
